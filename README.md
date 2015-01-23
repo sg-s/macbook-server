@@ -129,6 +129,12 @@ Start MAMP (be careful not to run MAMP Pro, which will also be installed) and se
 ![](images/mamp-1.png)
 ![](images/mamp-2.png)
 
+It's sensible to put the `document root` of the MAMP server in ~/Sites, since it is already created for you, and you have write permissions here. 
+
+OK, let's see if this works: 
+
+
+
 # Install applications on your server
 
 ## [wallabag](http://wallabag.org)
