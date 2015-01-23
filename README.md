@@ -61,5 +61,10 @@ brew cask install caffeine
 
 The latest (v1.40) version of NoSleep is broken on Lion, and we'll have to install an older one. See this [issue](https://github.com/integralpro/nosleep/issues/5) on their repo page. You will have to download v1.3.3 [here](https://code.google.com/p/macosx-nosleep-extension/downloads/detail?name=NoSleep-1.3.3.dmg&can=2&q=) and manually install it. Make sure you enable "don't check for updates" because as of writing, the latest version is broken, and it will break itself trying to update. 
 
+### 1.4 Set up a local static IP
+
+Go to `System Preferences > Network` and set up a static IP as shown:
+
+![](static-ip.png)
 
 
