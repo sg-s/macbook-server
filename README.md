@@ -45,6 +45,7 @@ brew install youtube-dl
 brew install ruby
 brew install git 
 brew install ffmpeg
+brew install node
 ```
 
 *You can also `brew install thing1 thing2`*
@@ -122,7 +123,9 @@ PasswordAuthentication no
 ChallengeResponseAuthentication no
 ````
 
+# Install applications on your server
 
+## [wallabag](http://wallabag.org)
 
 
 
