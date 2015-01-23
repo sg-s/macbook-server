@@ -126,8 +126,8 @@ ChallengeResponseAuthentication no
 
 Start MAMP (be careful not to run MAMP Pro, which will also be installed) and set it up as follows:
 
-![](mamp-1.png)
-![](mamp-2.png)
+![](images/mamp-1.png)
+![](images/mamp-2.png)
 
 # Install applications on your server
 
