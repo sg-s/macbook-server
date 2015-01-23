@@ -68,13 +68,15 @@ brew cask install caffeine
 
 The latest (v1.40) version of NoSleep is broken on Lion, and we'll have to install an older one. See this [issue](https://github.com/integralpro/nosleep/issues/5) on their repo page. You will have to download v1.3.3 [here](https://code.google.com/p/macosx-nosleep-extension/downloads/detail?name=NoSleep-1.3.3.dmg&can=2&q=) and manually install it. Make sure you enable "don't check for updates" because as of writing, the latest version is broken, and it will break itself trying to update. 
 
-### 1.4 Set up a local static IP
+## 2. Configure the `BlackServer`
+
+### 2.1 Set up a local static IP
 
 Go to `System Preferences > Network` and set up a static IP as shown:
 
 ![](images/static-ip.png)
 
-### 1.5 Enable remote access 
+### 2.2 Enable remote access 
 
 We'll need to get in and out of this computer from all over the world soon. And in the beginning at least, it would be nice to have a way to log into the computer and see the screen. Let's set up all this in `System Preferences > Sharing`
 
@@ -122,7 +124,7 @@ PasswordAuthentication no
 # Change to no to disable s/key passwords
 ChallengeResponseAuthentication no
 ````
-### Configure MAMP
+### 2.3 Configure MAMP
 
 Start MAMP (be careful not to run MAMP Pro, which will also be installed) and set it up as follows:
 
@@ -142,6 +144,23 @@ Despite this joyous message, this is not an indication that our MAMP installatio
 Good! Now, let's check if MAMP has actually been installed:
 
 ![](images/server-3.png)
+
+### 2.4 Configure a global name 
+
+It would be nice to access `BlackServer` from anywhere in the world. Right now, we can't do that, for two reasons:
+
+1. we don't know where in the internet `BlackServer` is 
+2. the router that `BlackServer` is on doesn't know what to do with packets coming from and going to `BlackServer`
+
+Let's address both problems. 
+
+To tell your router how to pass on messages to/from `BlackServer`, you need to do something called **port forwarding**. Unforutunately, every router is different, and some routers are so stupid they don't allow you to do that. You have to figure out how to do this on yours. Go to your router's admin page (usually 192.168.1.1) and enter your username and password (usually admin/admin or something silly)
+
+Find a page that looks like this, and add entries as follows:
+
+![](images/port-forward.png)
+
+The specific ports you forward depend on the applications and servies you will install on your server, but you get the idea. 
 
 
 # Install applications on your server
