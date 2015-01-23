@@ -60,6 +60,7 @@ brew cask install sublime-text
 brew cask install torbrowser
 brew cask install carbon-copy-cloner
 brew cask install caffeine
+brew cask install bittorrent-sync
 ```
 
 ### 1.3 Install some things that brew can't
