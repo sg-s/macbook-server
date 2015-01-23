@@ -122,6 +122,12 @@ PasswordAuthentication no
 # Change to no to disable s/key passwords
 ChallengeResponseAuthentication no
 ````
+### Configure MAMP
+
+Start MAMP (be careful not to run MAMP Pro, which will also be installed) and set it up as follows:
+
+![](mamp-1.png)
+![](mamp-2.png)
 
 # Install applications on your server
 
