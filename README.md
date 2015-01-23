@@ -133,6 +133,11 @@ It's sensible to put the `document root` of the MAMP server in ~/Sites, since it
 
 OK, let's see if this works: 
 
+![](images/server-1.png)
+
+![](images/server-2.png)
+
+![](images/server-3.png)
 
 
 # Install applications on your server
