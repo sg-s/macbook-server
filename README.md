@@ -1,5 +1,7 @@
 # How to set up an old MacBook as a server
 
+![](images/macbook.png)
+
 # Why do such a crazy thing? 
 
 ## because you can host your own website
@@ -69,6 +71,6 @@ The latest (v1.40) version of NoSleep is broken on Lion, and we'll have to insta
 
 Go to `System Preferences > Network` and set up a static IP as shown:
 
-![](static-ip.png)
+![](images/static-ip.png)
 
 
