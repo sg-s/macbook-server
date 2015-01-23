@@ -44,9 +44,10 @@ brew install ruby
 brew install git 
 brew install ffmpeg
 ```
-Wow. we just installed a bunch of useful command line utilities. What about a browser and some GUI apps? `brew cask` has you covered. 
 
 *You can also `brew install thing1 thing2`*
+
+Wow. we just installed a bunch of useful command line utilities. What about a browser and some GUI apps? `brew cask` has you covered. 
 
 ```bash
 brew install caskroom/cask/brew-cask
