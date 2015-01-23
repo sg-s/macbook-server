@@ -135,7 +135,11 @@ OK, let's see if this works:
 
 ![](images/server-1.png)
 
+Despite this joyous message, this is not an indication that our MAMP installation works. Remembering that we started an Apache server on port 8888, verify that there is an Apache start page there:
+
 ![](images/server-2.png)
+
+Good! Now, let's check if MAMP has actually been installed:
 
 ![](images/server-3.png)
 
