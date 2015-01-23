@@ -73,4 +73,57 @@ Go to `System Preferences > Network` and set up a static IP as shown:
 
 ![](images/static-ip.png)
 
+### 1.5 Enable remote access 
+
+We'll need to get in and out of this computer from all over the world soon. And in the beginning at least, it would be nice to have a way to log into the computer and see the screen. Let's set up all this in `System Preferences > Sharing`
+
+![](images/remote.png)
+
+But we're not done yet! For added security, let's configure `BlackServer` so that we can SSH into it only using **public key authentication**. This way, there are no passwords to type in, and it's much harder for someone to break into our computer. 
+
+Assuming you have made your SSH keys on your local machine (*not* `BlackServer`!), copy them to `BlackServer`
+
+```bash
+scp ~/.ssh/id_rsa.pub user@blackserver:~/Desktop/
+```
+
+Now, on `BlackServer`, run this:
+
+
+```bash
+mkdir ~/.ssh
+cat ~/Desktop/id_rsa.pub >> ~/.ssh/authorized_keys
+```
+
+OK. `BlackServer` can now verify your local machine using public key crytography. Now we need to configure `BlackServer` to do so:
+
+Fire up Sublime Text to edit the ssh config file:  
+
+```bash
+subl /etc/sshd_config
+```
+and uncomment these lines 
+
+```bash
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile	.ssh/authorized_keys
+```
+
+Also, let's prevent authentication using passwords. Change this file to:
+
+```bash
+# To disable tunneled clear text passwords both PasswordAuthentication and
+# ChallengeResponseAuthentication must be set to "no".
+PasswordAuthentication no
+#PermitEmptyPasswords no
+
+# Change to no to disable s/key passwords
+ChallengeResponseAuthentication no
+````
+
+
+
+
+
 
