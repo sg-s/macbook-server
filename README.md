@@ -163,6 +163,11 @@ Find a page that looks like this, and add entries as follows:
 
 The specific ports you forward depend on the applications and servies you will install on your server, but you get the idea. 
 
+Now, we need a service that translates a short name into the IP address of `BlackServer` (or more precisely, the IP address of the router `BlackServer` is on). For this, we use a bit of software from no-ip:
+
+```bash
+brew cask install no-ip-duc
+```
 
 # Install applications on your server
 
