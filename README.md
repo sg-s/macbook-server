@@ -2,6 +2,7 @@
 
 ![](images/macbook.png)
 
+
 # Why do such a crazy thing? 
 
 ## because you can host your own website
@@ -61,6 +62,12 @@ brew cask install torbrowser
 brew cask install carbon-copy-cloner
 brew cask install caffeine
 brew cask install bittorrent-sync
+```
+
+One of the complications of using `brew` is that it installs its own versions of things that Mac OS X already has (like `git`). To make sure that we always use the `brew` version, and not the OS X version, set your `$PATH` so that the `brew` path occurs before the system path:
+
+```
+echo export PATH='/usr/local/bin:$PATH' >> ~/.bash_profile
 ```
 
 ### 1.3 Install some things that brew can't
@@ -131,14 +138,27 @@ Start MAMP (be careful not to run MAMP Pro, which will also be installed) and se
 
 ![](images/mamp-1.png)
 ![](images/mamp-2.png)
+![](images/mamp-3.png)
 
-It's sensible to put the `document root` of the MAMP server in ~/Sites, since it is already created for you, and you have write permissions here. 
+It's sensible to put the `document root` of the MAMP server in `~/Sites` (I've hidden my username in the screenshot), since it is already created for you, and you have write permissions here. 
 
 OK, let's see if this works: 
 
 ![](images/server-1.png)
 
-Despite this joyous message, this is not an indication that our MAMP installation works. Remembering that we started an Apache server on port 8888, verify that there is an Apache start page there:
+Despite this joyous message, **this is not an indication that our MAMP installation works. **Where is this page coming from? Mac OS X has a webserver built in, and its document root is here:
+
+```
+/Library/Webserver/Documents/
+```
+Unhelpfully, Mac OS X restricts you from making changes to this folder. This means that every change to anything in this folder requires your admin password, and this gets annoying quickly. To avoid this nightmare, take ownership of this folder:
+
+```
+cd /Library/Webserver/
+sudo chown [your user name] Documents/
+```
+
+Remembering that we started MAMP's Apache server on port 8888, we verify that there is an Apache start page there:
 
 ![](images/server-2.png)
 
@@ -170,6 +190,12 @@ brew cask install no-ip-duc
 ```
 
 # Install applications on your server
+
+## A File upload service
+
+Wouldn't it be nice if you could operate your own file upload service? If people wanted to send you documents, they could simply upload it to your computer. No more messing around with [Condi's Dropbox](http://www.drop-dropbox.com/). 
+
+I've written a small file upload service that works straight out of the box. Grab it with 
 
 ## [wallabag](http://wallabag.org)
 
