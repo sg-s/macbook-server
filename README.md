@@ -123,12 +123,11 @@ AuthorizedKeysFile	.ssh/authorized_keys
 
 Also, let's prevent authentication using passwords. Change this file to:
 
-```bash
+````bash
 # To disable tunneled clear text passwords both PasswordAuthentication and
 # ChallengeResponseAuthentication must be set to "no".
 PasswordAuthentication no
 #PermitEmptyPasswords no
-
 # Change to no to disable s/key passwords
 ChallengeResponseAuthentication no
 ````
@@ -137,8 +136,8 @@ ChallengeResponseAuthentication no
 Start MAMP (be careful not to run MAMP Pro, which will also be installed) and set it up as follows:
 
 ![](images/mamp-1.png)
-![](images/mamp-2.png)
 ![](images/mamp-3.png)
+![](images/mamp-2.png)
 
 It's sensible to put the `document root` of the MAMP server in `~/Sites` (I've hidden my username in the screenshot), since it is already created for you, and you have write permissions here. 
 
@@ -146,7 +145,7 @@ OK, let's see if this works:
 
 ![](images/server-1.png)
 
-Despite this joyous message, **this is not an indication that our MAMP installation works. **Where is this page coming from? Mac OS X has a webserver built in, and its document root is here:
+Despite this joyous message, **this is not an indication that our MAMP installation works.** Where is this page coming from? Mac OS X has a webserver built in, and its document root is here:
 
 ```
 /Library/Webserver/Documents/
@@ -171,23 +170,25 @@ Good! Now, let's check if MAMP has actually been installed:
 It would be nice to access `BlackServer` from anywhere in the world. Right now, we can't do that, for two reasons:
 
 1. we don't know where in the internet `BlackServer` is 
-2. the router that `BlackServer` is on doesn't know what to do with packets coming from and going to `BlackServer`
+2. the router that `BlackServer` is on doesn't know what to do with packets coming from and going to `BlackServer`. In fact, it is designed to ignore everything by default.
 
 Let's address both problems. 
 
-To tell your router how to pass on messages to/from `BlackServer`, you need to do something called **port forwarding**. Unforutunately, every router is different, and some routers are so stupid they don't allow you to do that. You have to figure out how to do this on yours. Go to your router's admin page (usually 192.168.1.1) and enter your username and password (usually admin/admin or something silly)
+To tell your router how to pass on messages to/from `BlackServer`, you need to do something called **port forwarding**. Unfortunately, every router is different, and some routers are so stupid they don't allow you to do that. You have to figure out how to do this on yours. Go to your router's admin page (usually 192.168.1.1) and enter your username and password (usually admin/admin or something silly)
 
 Find a page that looks like this, and add entries as follows:
 
 ![](images/port-forward.png)
 
-The specific ports you forward depend on the applications and servies you will install on your server, but you get the idea. 
+The specific ports you forward depend on the applications and services you will install on your server, but you get the idea. 
 
 Now, we need a service that translates a short name into the IP address of `BlackServer` (or more precisely, the IP address of the router `BlackServer` is on). For this, we use a bit of software from no-ip:
 
 ```bash
 brew cask install no-ip-duc
 ```
+
+Configuring this piece of software is easy, and you can get it to update a URL you control with the IP address `BlackServer` is on. Let's assume that the domain name you control is `black.server`.
 
 # Install applications on your server
 
@@ -196,6 +197,18 @@ brew cask install no-ip-duc
 Wouldn't it be nice if you could operate your own file upload service? If people wanted to send you documents, they could simply upload it to your computer. No more messing around with [Condi's Dropbox](http://www.drop-dropbox.com/). 
 
 I've written a small file upload service that works straight out of the box. Grab it with 
+
+```bash
+cd /Library/Webserver/Documents/
+git clone https://github.com/sg-s/upload
+chmod 777 uploads
+```
+
+To check if you've done the right thing, trying going to `black.server/upload` from another computer. You should see this:
+
+![](images/upload.png)
+
+Try uploading something. You should get a green message telling you it worked. You can go see the file for yourself on `BlackServer` in `/Library/Webserver/Documents/upload/uploads/`
 
 ## [wallabag](http://wallabag.org)
 
