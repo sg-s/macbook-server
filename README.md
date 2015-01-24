@@ -157,7 +157,7 @@ cd /Library/Webserver/
 sudo chown [your user name] Documents/
 ```
 
-Remembering that we started MAMP's Apache server on port 8888, we verify that there is an Apache start page there:
+Remembering that we started MAMP's Apache server on port 80, we verify that there is an Apache start page there:
 
 ![](images/server-2.png)
 
@@ -196,7 +196,7 @@ Configuring this piece of software is easy, and you can get it to update a URL y
 
 Wouldn't it be nice if you could operate your own file upload service? If people wanted to send you documents, they could simply upload it to your computer. No more messing around with [Condi's Dropbox](http://www.drop-dropbox.com/). 
 
-I've written a small file upload service that works straight out of the box. Grab it with 
+I've written a small file [upload](https://github.com/sg-s/upload) service that works straight out of the box. Grab it with 
 
 ```bash
 cd /Library/Webserver/Documents/
