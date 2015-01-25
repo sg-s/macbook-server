@@ -3,28 +3,28 @@
 ![](images/macbook.png)
 <!-- MarkdownTOC -->
 
-- [Why do such a crazy thing][crazy-thing]
-    - [because you can host your own website][because-you-can-host-your-own-website]
-    - [because you can host your own media server][because-you-can-host-your-own-media-server]
-    - [because the internet is broken][because-the-internet-is-broken]
-    - [because you can make a mean machine][because-you-can-make-a-mean-machine]
-        - [Specifications of the BlackServer][specifications-of-the-blackserver]
-- [0. Start with a fresh computer][0-start-with-a-fresh-computer]
-- [1. Install Stuff][1-install-stuff]
-    - [1.0 First, install the XCode Command Line Tools][10-first-install-the-xcode-command-line-tools]
-    - [1.1 Install `brew`][11-install-brew]
-    - [1.2 Install things using `brew`][12-install-things-using-brew]
-    - [1.3 Install some things that brew can't][13-install-some-things-that-brew-cant]
-    - [2. Configure the `BlackServer`][2-configure-the-blackserver]
-        - [2.1 Set up a local static IP][21-set-up-a-local-static-ip]
-        - [2.2 Enable remote access][22-enable-remote-access]
-        - [2.3 Configure MAMP][23-configure-mamp]
-        - [2.4 Configure a global name][24-configure-a-global-name]
-        - [2.5 composer][25-composer]
-- [Install applications on your server][install-applications-on-your-server]
-    - [A File upload service][a-file-upload-service]
-    - [wallabag][wallabag]
-- [References][references]
+- [Why do such a crazy thing](#crazy-thing)
+    - [because you can host your own website](#because-you-can-host-your-own-website)
+    - [because you can host your own media server](#because-you-can-host-your-own-media-server)
+    - [because the internet is broken](#because-the-internet-is-broken)
+    - [because you can make a mean machine](#because-you-can-make-a-mean-machine)
+        - [Specifications of the BlackServer](#specifications-of-the-blackserver)
+- [0. Start with a fresh computer](#0-start-with-a-fresh-computer)
+- [1. Install Stuff](#1-install-stuff)
+    - [1.0 First, install the XCode Command Line Tools](#10-first-install-the-xcode-command-line-tools)
+    - [1.1 Install `brew`](#11-install-brew)
+    - [1.2 Install things using `brew`](#12-install-things-using-brew)
+    - [1.3 Install some things that brew can't](#13-install-some-things-that-brew-cant)
+    - [2. Configure the `BlackServer`](#2-configure-the-blackserver)
+        - [2.1 Set up a local static IP](#21-set-up-a-local-static-ip)
+        - [2.2 Enable remote access](#22-enable-remote-access)
+        - [2.3 Configure MAMP](#23-configure-mamp)
+        - [2.4 Configure a global name](#24-configure-a-global-name)
+        - [2.5 composer](#25-composer)
+- [Install applications on your server](#install-applications-on-your-server)
+    - [A File upload service](#a-file-upload-service)
+    - [wallabag](#wallabag)
+- [References](#references)
 
 <!-- /MarkdownTOC -->
 
