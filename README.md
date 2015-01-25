@@ -2,6 +2,37 @@
 
 ![](images/macbook.png)
 
+<!-- MarkdownTOC -->
+
+- [0. Why do such a crazy thing?](#0-why-do-such-a-crazy-thing)
+    - [0.1 because you can host your own website](#01-because-you-can-host-your-own-website)
+    - [0.2 awesome backups](#02-awesome-backups)
+    - [0.3 because you can host your own media server](#03-because-you-can-host-your-own-media-server)
+    - [0.4 because the internet is broken](#04-because-the-internet-is-broken)
+    - [0.5 because you can make a mean machine](#05-because-you-can-make-a-mean-machine)
+- [1. What this document ...](#1-what-this-document-)
+    - [1.1 What this document is](#11-what-this-document-is)
+    - [1.2 What this document is **not**](#12-what-this-document-is-not)
+- [2. Basic Configuration](#2-basic-configuration)
+    - [2.1 Operating System](#21-operating-system)
+    - [2.2 XCode Command Line Tools](#22-xcode-command-line-tools)
+    - [2.3 Install `brew`](#23-install-brew)
+    - [2.4 Install things using `brew`](#24-install-things-using-brew)
+    - [2.4 Install some things that brew can't](#24-install-some-things-that-brew-cant)
+    - [2. Configure the `BlackServer`](#2-configure-the-blackserver)
+        - [2.1 Set up a local static IP](#21-set-up-a-local-static-ip)
+        - [2.2 Enable remote access](#22-enable-remote-access)
+        - [2.3 Configure MAMP](#23-configure-mamp)
+        - [2.4 Configure a global name](#24-configure-a-global-name)
+        - [2.5 composer](#25-composer)
+- [Install applications on your server](#install-applications-on-your-server)
+    - [A File upload service](#a-file-upload-service)
+    - [wallabag](#wallabag)
+- [References](#references)
+
+<!-- /MarkdownTOC -->
+
+
 # 0. Why do such a crazy thing? 
 
 ## 0.1 because you can host your own website
@@ -44,17 +75,23 @@ This is the configuration of my MacBook server:
 
 # 2. Basic Configuration 
 
-For my purposes, I installed Snow Leopard onto a BlackBook (the last black MacBook), booting from the CD to wipe the old installation, updated to the last version of Snow Leopard, and then upgraded to Lion, and then patched Lion with all the updates I could lay my hands on. 
+### 2.1 Operating System
 
-# 1. Install Stuff 
+Because my computer was rather long in the tooth, and didn't have anything on it I was very attached to, I booted from a `Snow Leopard` install disc, and did a fresh install. I then updated to the last version of Snow Leopard and then upgraded to Lion, and then patched Lion with all the updates I could lay my hands on. My final configuration is:
 
-### 1.0 First, install the XCode Command Line Tools 
+```
+Mac OS X 10.7.5 (Lion)
+```
 
-The last version I could install is `Command Line Tools (OS X Lion) for Xcode - April 2013`
+I couldn't update to `Mountain Lion` because that was the limit of the `Black MacbookBook`
+
+### 2.2 XCode Command Line Tools 
+
+You need the XCode Command Line Tools to install a number of other things. The last version I could install is `Command Line Tools (OS X Lion) for Xcode - April 2013`
 
 Here's a [link](http://adcdownload.apple.com/Developer_Tools/command_line_tools_os_x_lion_for_xcode__april_2013/xcode462_cltools_10_76938260a.dmg) to the disk image. You'll need a free Apple Developer account to get this. 
 
-### 1.1 Install `brew`
+### 2.3 Install `brew`
 
 `brew` is a fantastic pckage manger for Mac OS X. You will definitely need this. Install with this single line:
 
@@ -64,40 +101,42 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 It will ask you for your password. Enter one. 
 
-### 1.2 Install things using `brew`
+### 2.4 Install things using `brew`
 
 Now that brew is installed, it is super easy to install a huge bunch of things. Note that some of these depend on the order you install them. 
 
 ```bash
-brew install youtube-dl
-brew install ruby
-brew install git 
-brew install ffmpeg
-brew install node
+brew install youtube-dl     # download YouTube videos nicely
+brew install ruby           # the ruby programming language 
+brew install git            # the best version control software
+brew install ffmpeg         # the best way to convert video
+brew install node           # server-side JavaScript
 ```
 
-*You can also `brew install thing1 thing2`*
+*You can also*  `brew install thing1 thing2`
 
-Wow. we just installed a bunch of useful command line utilities. What about a browser and some GUI apps? `brew cask` has you covered. 
+Wow. we just installed a bunch of useful command line utilities. What about a better browser and some GUI apps? `brew cask` has you covered. 
 
 ```bash
 brew install caskroom/cask/brew-cask
-brew cask install firefox
-brew cask install mamp
-brew cask install sublime-text
-brew cask install torbrowser
-brew cask install carbon-copy-cloner
-brew cask install caffeine
-brew cask install bittorrent-sync
+brew cask install firefox               # the best free browser
+brew cask install mamp                  # Apache, mySQL and PHP
+brew cask install sublime-text          # the best text editor
+brew cask install torbrowser            # simple anonymity 
+brew cask install carbon-copy-cloner    # backups made easy
+brew cask install caffeine              # keep your screen on
+brew cask install bittorrent-sync       # file sync via P2P
 ```
 
-One of the complications of using `brew` is that it installs its own versions of things that Mac OS X already has (like `git`). To make sure that we always use the `brew` version, and not the OS X version, set your `$PATH` so that the `brew` path occurs before the system path:
+One of the complications(features?) of using `brew` is that it installs its own versions of things that Mac OS X already has (like `git`). To make sure that we always use the `brew` version, and not the OS X version, set your `$PATH` so that the `brew` path occurs before the system path:
 
 ```
 echo export PATH='/usr/local/bin:$PATH' >> ~/.bash_profile
 ```
 
-### 1.3 Install some things that brew can't
+Why do this? Because the `brew` versions are more secure, more recent, and are going to be maintained. 
+
+### 2.4 Install some things that brew can't
 
 #### NoSleep
 
