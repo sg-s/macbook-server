@@ -1,49 +1,48 @@
 # How to set up an old MacBook as a server
 
 ![](images/macbook.png)
-<!-- MarkdownTOC -->
 
-- [Why do such a crazy thing](#crazy-thing)
-    - [because you can host your own website](#because-you-can-host-your-own-website)
-    - [because you can host your own media server](#because-you-can-host-your-own-media-server)
-    - [because the internet is broken](#because-the-internet-is-broken)
-    - [because you can make a mean machine](#because-you-can-make-a-mean-machine)
-        - [Specifications of the BlackServer](#specifications-of-the-blackserver)
-- [0. Start with a fresh computer](#0-start-with-a-fresh-computer)
-- [1. Install Stuff](#1-install-stuff)
-    - [1.0 First, install the XCode Command Line Tools](#10-first-install-the-xcode-command-line-tools)
-    - [1.1 Install `brew`](#11-install-brew)
-    - [1.2 Install things using `brew`](#12-install-things-using-brew)
-    - [1.3 Install some things that brew can't](#13-install-some-things-that-brew-cant)
-    - [2. Configure the `BlackServer`](#2-configure-the-blackserver)
-        - [2.1 Set up a local static IP](#21-set-up-a-local-static-ip)
-        - [2.2 Enable remote access](#22-enable-remote-access)
-        - [2.3 Configure MAMP](#23-configure-mamp)
-        - [2.4 Configure a global name](#24-configure-a-global-name)
-        - [2.5 composer](#25-composer)
-- [Install applications on your server](#install-applications-on-your-server)
-    - [A File upload service](#a-file-upload-service)
-    - [wallabag](#wallabag)
-- [References](#references)
+# 0. Why do such a crazy thing? 
 
-<!-- /MarkdownTOC -->
+## 0.1 because you can host your own website
+
+Why pay `$$` to rent a crappy computer somewhere else? Host your own website on your terms. 
+
+## 0.2 awesome backups 
+
+Wouldn't it be awesome to have your computer backup wirelessly, automatically, no matter where you are? 
+
+## 0.3 because you can host your own media server
+
+Imagine having a personalised YouTube, filled with your own collection of awesome movies and TV shows and what have you. 
+
+## 0.4 because the internet is broken 
+
+Don't let [*your* personal information be the currency with which you pay for essential services](www.bostonglobe.com/business/2015/01/23/snowden-nsa-face-off-over-privacy-harvard/7S0HX1SaCO1MlZL70JC2mK/story.html) on the internet. You shouldn't have to relinquish privacy just to read a stupid email.
+
+## 0.5 because you can make a mean machine 
+
+This is the configuration of my MacBook server:
+
+- 2GB RAM
+- 128GB SSD
+- .5TB of additional storage (I swapped out my optical drive)
+- 4TB of additional, external storage (1 FireWire port, 2 USB ports)
+
+# 1. What this document ...
+
+## 1.1 What this document is
+
+- the way I did this
+- a way for me document what I did
+
+## 1.2 What this document is **not**
+
+- The *best* way to do this
+- A *secure* way to do this
 
 
-# Why do such a crazy thing [crazy-thing]? 
-
-## because you can host your own website
-
-The internet was built on the idea that all of us possess the means to express ourselves to the world. Sadly, that idea has been forgotten. While it's perfectly possible for us to use the two-way radios on our phones, we [rarely](http://www.citylab.com/tech/2014/10/what-firechats-success-in-hong-kong-means-for-a-global-internet/381182/) ever do so. While it's perfectly possible to host your
-
-## because you can host your own media server
-
-## because the internet is broken 
-
-## because you can make a mean machine 
-
-### Specifications of the BlackServer 
-
-# 0. Start with a fresh computer
+# 2. Basic Configuration 
 
 For my purposes, I installed Snow Leopard onto a BlackBook (the last black MacBook), booting from the CD to wipe the old installation, updated to the last version of Snow Leopard, and then upgraded to Lion, and then patched Lion with all the updates I could lay my hands on. 
 
