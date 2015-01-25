@@ -1,11 +1,39 @@
 # How to set up an old MacBook as a server
 
 ![](images/macbook.png)
+<!-- MarkdownTOC -->
+
+- [Why do such a crazy thing][crazy-thing]
+    - [because you can host your own website][because-you-can-host-your-own-website]
+    - [because you can host your own media server][because-you-can-host-your-own-media-server]
+    - [because the internet is broken][because-the-internet-is-broken]
+    - [because you can make a mean machine][because-you-can-make-a-mean-machine]
+        - [Specifications of the BlackServer][specifications-of-the-blackserver]
+- [0. Start with a fresh computer][0-start-with-a-fresh-computer]
+- [1. Install Stuff][1-install-stuff]
+    - [1.0 First, install the XCode Command Line Tools][10-first-install-the-xcode-command-line-tools]
+    - [1.1 Install `brew`][11-install-brew]
+    - [1.2 Install things using `brew`][12-install-things-using-brew]
+    - [1.3 Install some things that brew can't][13-install-some-things-that-brew-cant]
+    - [2. Configure the `BlackServer`][2-configure-the-blackserver]
+        - [2.1 Set up a local static IP][21-set-up-a-local-static-ip]
+        - [2.2 Enable remote access][22-enable-remote-access]
+        - [2.3 Configure MAMP][23-configure-mamp]
+        - [2.4 Configure a global name][24-configure-a-global-name]
+        - [2.5 composer][25-composer]
+- [Install applications on your server][install-applications-on-your-server]
+    - [A File upload service][a-file-upload-service]
+    - [wallabag][wallabag]
+- [References][references]
+
+<!-- /MarkdownTOC -->
 
 
-# Why do such a crazy thing? 
+# Why do such a crazy thing [crazy-thing]? 
 
 ## because you can host your own website
+
+The internet was built on the idea that all of us possess the means to express ourselves to the world. Sadly, that idea has been forgotten. While it's perfectly possible for us to use the two-way radios on our phones, we [rarely](http://www.citylab.com/tech/2014/10/what-firechats-success-in-hong-kong-means-for-a-global-internet/381182/) ever do so. While it's perfectly possible to host your
 
 ## because you can host your own media server
 
@@ -17,7 +45,7 @@
 
 # 0. Start with a fresh computer
 
-For my purposes, I installed Snow Leopard onto a BlackBook (the last black MacBook), updated to the last version of Snow Leopard, and then upgraded to Lion, and then patched Lion with all the updates I could lay my hands on. 
+For my purposes, I installed Snow Leopard onto a BlackBook (the last black MacBook), booting from the CD to wipe the old installation, updated to the last version of Snow Leopard, and then upgraded to Lion, and then patched Lion with all the updates I could lay my hands on. 
 
 # 1. Install Stuff 
 
@@ -137,9 +165,7 @@ Start MAMP (be careful not to run MAMP Pro, which will also be installed) and se
 
 ![](images/mamp-1.png)
 ![](images/mamp-3.png)
-![](images/mamp-2.png)
-
-It's sensible to put the `document root` of the MAMP server in `~/Sites` (I've hidden my username in the screenshot), since it is already created for you, and you have write permissions here. 
+![](images/mamp-2.png)v
 
 OK, let's see if this works: 
 
@@ -190,6 +216,35 @@ brew cask install no-ip-duc
 
 Configuring this piece of software is easy, and you can get it to update a URL you control with the IP address `BlackServer` is on. Let's assume that the domain name you control is `black.server`.
 
+### 2.5 composer
+
+[composer](https://getcomposer.org/) is a dependency manager for PHP. You will need it if you install wallabag. 
+
+Because of the chaos we have unleashed with MAMP, a PHP configuration file called `php.ini` will not be in the "right" place. To fix that, run
+
+```bash
+sudo cp /etc/php.ini.default /etc/php.ini
+```
+
+And fire up Sublime text and add this line 
+```php
+detect_unicode = Off
+```
+
+using 
+```bash
+subl /etc/php.ini
+```
+
+*hat tip to [Tony Lea](http://www.tonylea.com/2013/os-x-and-composer-error-php-ini-does-not-exist/)*
+
+Finally, we can install composer using the installer:
+
+```bash
+curl -s http://getcomposer.org/installer | php
+```
+
+
 # Install applications on your server
 
 ## A File upload service
@@ -211,6 +266,12 @@ To check if you've done the right thing, trying going to `black.server/upload` f
 Try uploading something. You should get a green message telling you it worked. You can go see the file for yourself on `BlackServer` in `/Library/Webserver/Documents/upload/uploads/`
 
 ## [wallabag](http://wallabag.org)
+
+# References
+
+1. [Getting started with dotfiles](https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789)
+2. [How to run your own e-mail server with your own domain](http://arstechnica.com/information-technology/2014/02/how-to-run-your-own-e-mail-server-with-your-own-domain-part-1/)
+3. [The Free Software Foundationn](http://www.fsf.org/)
 
 
 
