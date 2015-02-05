@@ -2,6 +2,8 @@
 
 ![](images/macbook.png)
 
+The `BlackServer`
+
 <!-- MarkdownTOC -->
 
 - [0. Why do such a crazy thing?](#0-why-do-such-a-crazy-thing)
@@ -19,15 +21,18 @@
     - [2.3 Install `brew`](#23-install-brew)
     - [2.4 Install things using `brew`](#24-install-things-using-brew)
     - [2.4 Install some things that brew can't](#24-install-some-things-that-brew-cant)
-    - [2. Configure the `BlackServer`](#2-configure-the-blackserver)
-        - [2.1 Set up a local static IP](#21-set-up-a-local-static-ip)
-        - [2.2 Enable remote access](#22-enable-remote-access)
-        - [2.3 Configure MAMP](#23-configure-mamp)
-        - [2.4 Configure a global name](#24-configure-a-global-name)
-        - [2.5 composer](#25-composer)
-- [Install applications on your server](#install-applications-on-your-server)
-    - [A File upload service](#a-file-upload-service)
-    - [wallabag](#wallabag)
+    - [2.5 Set up a local static IP](#25-set-up-a-local-static-ip)
+    - [2.6 Enable remote access](#26-enable-remote-access)
+    - [2.7 Configure MAMP](#27-configure-mamp)
+    - [2.4 Configure a global name](#24-configure-a-global-name)
+    - [2.5 composer](#25-composer)
+- [3. Install applications on your server](#3-install-applications-on-your-server)
+    - [3.0 A File upload service](#30-a-file-upload-service)
+    - [3.1 wallabag](#31-wallabag)
+        - [Modify your `$PATH` variable](#modify-your-path-variable)
+        - [Modify your php.ini file](#modify-your-phpini-file)
+        - [Install wallabag](#install-wallabag)
+    - [3.2 raneto](#32-raneto)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -35,23 +40,23 @@
 
 # 0. Why do such a crazy thing? 
 
-## 0.1 because you can host your own website
+### 0.1 because you can host your own website
 
 Why pay `$$` to rent a crappy computer somewhere else? Host your own website on your terms. 
 
-## 0.2 awesome backups 
+### 0.2 awesome backups 
 
 Wouldn't it be awesome to have your computer backup wirelessly, automatically, no matter where you are? 
 
-## 0.3 because you can host your own media server
+### 0.3 because you can host your own media server
 
 Imagine having a personalised YouTube, filled with your own collection of awesome movies and TV shows and what have you. 
 
-## 0.4 because the internet is broken 
+### 0.4 because the internet is broken 
 
-Don't let [*your* personal information be the currency with which you pay for essential services](www.bostonglobe.com/business/2015/01/23/snowden-nsa-face-off-over-privacy-harvard/7S0HX1SaCO1MlZL70JC2mK/story.html) on the internet. You shouldn't have to relinquish privacy just to read a stupid email.
+Don't let [*your* personal information be the currency with which you pay for essential services](http://www.bostonglobe.com/business/2015/01/23/snowden-nsa-face-off-over-privacy-harvard/7S0HX1SaCO1MlZL70JC2mK/story.html) on the internet. You shouldn't have to relinquish privacy just to read a stupid email.
 
-## 0.5 because you can make a mean machine 
+### 0.5 because you can make a mean machine 
 
 This is the configuration of my MacBook server:
 
@@ -62,12 +67,12 @@ This is the configuration of my MacBook server:
 
 # 1. What this document ...
 
-## 1.1 What this document is
+### 1.1 What this document is
 
 - the way I did this
 - a way for me document what I did
 
-## 1.2 What this document is **not**
+### 1.2 What this document is **not**
 
 - The *best* way to do this
 - A *secure* way to do this
@@ -111,6 +116,7 @@ brew install ruby           # the ruby programming language
 brew install git            # the best version control software
 brew install ffmpeg         # the best way to convert video
 brew install node           # server-side JavaScript
+brew install wget           # download things easily 
 ```
 
 *You can also*  `brew install thing1 thing2`
@@ -142,15 +148,15 @@ Why do this? Because the `brew` versions are more secure, more recent, and are g
 
 The latest (v1.40) version of NoSleep is broken on Lion, and we'll have to install an older one. See this [issue](https://github.com/integralpro/nosleep/issues/5) on their repo page. You will have to download v1.3.3 [here](https://code.google.com/p/macosx-nosleep-extension/downloads/detail?name=NoSleep-1.3.3.dmg&can=2&q=) and manually install it. Make sure you enable "don't check for updates" because as of writing, the latest version is broken, and it will break itself trying to update. 
 
-## 2. Configure the `BlackServer`
-
-### 2.1 Set up a local static IP
+### 2.5 Set up a local static IP
 
 Go to `System Preferences > Network` and set up a static IP as shown:
 
 ![](images/static-ip.png)
 
-### 2.2 Enable remote access 
+What we're doing here is making sure that `BlackServer` has the same IP address on the local network (your router's network). This means it's at the same place on the network, and that your router can be told to send messages to the `BlackServer` easily. 
+
+### 2.6 Enable remote access 
 
 We'll need to get in and out of this computer from all over the world soon. And in the beginning at least, it would be nice to have a way to log into the computer and see the screen. Let's set up all this in `System Preferences > Sharing`
 
@@ -172,9 +178,9 @@ mkdir ~/.ssh
 cat ~/Desktop/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-OK. `BlackServer` can now verify your local machine using public key crytography. Now we need to configure `BlackServer` to do so:
+OK. `BlackServer` *can* now verify your local machine using public key cryptography. Now we need to configure `BlackServer` to make sure it only does this:
 
-Fire up Sublime Text to edit the ssh config file:  
+Fire up `Sublime Text` to edit the SSH config file:  
 
 ```bash
 subl /etc/sshd_config
@@ -197,13 +203,16 @@ PasswordAuthentication no
 # Change to no to disable s/key passwords
 ChallengeResponseAuthentication no
 ````
-### 2.3 Configure MAMP
+
+**WARNING** At this point, you can *only* get into `BlackServer` via public key authentication. If you lose your SSH keys, or if someone steals them, you have a problem.  
+
+### 2.7 Configure MAMP
 
 Start MAMP (be careful not to run MAMP Pro, which will also be installed) and set it up as follows:
 
 ![](images/mamp-1.png)
 ![](images/mamp-3.png)
-![](images/mamp-2.png)v
+![](images/mamp-2.png)
 
 OK, let's see if this works: 
 
@@ -283,9 +292,9 @@ curl -s http://getcomposer.org/installer | php
 ```
 
 
-# Install applications on your server
+# 3. Install applications on your server
 
-## A File upload service
+## 3.0 A File upload service
 
 Wouldn't it be nice if you could operate your own file upload service? If people wanted to send you documents, they could simply upload it to your computer. No more messing around with [Condi's Dropbox](http://www.drop-dropbox.com/). 
 
@@ -303,7 +312,88 @@ To check if you've done the right thing, trying going to `black.server/upload` f
 
 Try uploading something. You should get a green message telling you it worked. You can go see the file for yourself on `BlackServer` in `/Library/Webserver/Documents/upload/uploads/`
 
-## [wallabag](http://wallabag.org)
+## 3.1 [wallabag](http://wallabag.org)
+
+Wallabag is a read-it-later service, like [Pocket](http://getpocket.com/) or [Instapaper](https://www.instapaper.com/), but with 100% less data stored on other people's servers, because your data is stored on your BlackServer. 
+
+I found installation [extremely](https://github.com/wallabag/wallabag/issues/1024) [difficult](https://github.com/wallabag/wallabag/issues/1023), but here is a easy way to get everything working. 
+
+### Modify your `$PATH` variable 
+
+Your `$PATH` variable tells `bash` where to look for commands. Edit your ~/.bash_profile to look like:
+
+```bash
+export PATH=/Applications/MAMP/bin/php/php5.6.2/bin:/usr/local/bin:$PATH
+```
+
+This tells the computer to use MAMP's PHP, instead of the crappy version built into OS X. 
+
+### Modify your php.ini file
+
+Add the following lines to your `php.ini`
+
+```
+extension_dir = "/Applications/MAMP/bin/php/php5.6.2/lib/php/extensions/no-debug-non-zts-20131226/"
+extension = pdo_mysql.so
+```
+
+This tells php to load the PDO extension, and points to the right location. 
+
+Check that everything works using `php --version`. You should see this:
+
+```
+PHP 5.6.2 (cli) (built: Oct 20 2014 16:21:27) 
+Copyright (c) 1997-2014 The PHP Group
+Zend Engine v2.6.0, Copyright (c) 1998-2014 Zend Technologies
+```
+
+If you see an error message about missing PDO, you probably haven't fixed your `$PATH`. 
+
+### Install wallabag
+
+Navigate to the Documents folder of your webserver (here, `/Library/WebServer/Documents/`) and run
+
+```bash
+curl -s http://getcomposer.org/installer | php
+composer create-project wallabag/wallabag wallabag
+mv composer.phar wallabag/
+cd wallabag
+php composer.phar install
+```
+
+That's it. Now go to `localhost/wallabag/`
+
+and choose a SQLite database, and a user name and password. 
+
+## 3.2 [raneto](https://github.com/gilbitron/Raneto)
+
+Raneto is a node.js-powered "knowledge aggregator". It's basically a wiki. The advantages of this seem to be that it's incredibly easy to use/install/manage, but the disadvntage is that this is a much smaller project that the massive `mediawiki` colossus. 
+
+Download the latest release [from here](https://github.com/gilbitron/Raneto/releases/latest) and unzip and move it wherever you want. Navigate to that folder, and modify it to run on port `80`:
+
+```
+subl www/bin
+```
+
+and change this line 
+```
+app.set('port', process.env.PORT || 3000);
+```
+
+to 
+```
+app.set('port', process.env.PORT || 80);
+
+```
+
+Now install and start the server with:
+
+```
+npm install
+npm start
+```
+
+
 
 # References
 
