@@ -32,7 +32,6 @@ The `BlackServer`
         - [Modify your `$PATH` variable](#modify-your-path-variable)
         - [Modify your php.ini file](#modify-your-phpini-file)
         - [Install wallabag](#install-wallabag)
-    - [3.2 raneto](#32-raneto)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -218,7 +217,7 @@ OK, let's see if this works (you will have to enter the local IP address of of y
 
 ![](images/server-1.png)
 
-Excellent. It looks like MAMP works, and we have an Apache server running. Now, MAMP by default does not enable *access logging*. Access logging allows us to see who is trying to connect to the `BlackServer`, and is also a useful debugging tool. To enable this, 
+Excellent. It looks like MAMP works, and we have an Apache server running. Now, MAMP by default does [not](https://sites.google.com/site/mamppro/en/mamp/faq/where-can-i-find-the-logs/how-can-i-enable-the-apache-access-logs) enable *access logging*. Access logging allows us to see who is trying to connect to the `BlackServer`, and is also a useful debugging tool. To enable this, 
 
 ```bash
 subl /Applications/MAMP/conf/apache/httpd.conf 
@@ -328,7 +327,7 @@ This tells the computer to use MAMP's PHP, instead of the crappy version built i
 
 ### Modify your php.ini file
 
-Add the following lines to your `php.ini`
+Assuming you followed the instructions [here](#25-composer) about the location of your `php.ini` file, add the following lines to your `php.ini`
 
 ```
 extension_dir = "/Applications/MAMP/bin/php/php5.6.2/lib/php/extensions/no-debug-non-zts-20131226/"
@@ -362,35 +361,6 @@ php composer.phar install
 That's it. Now go to `localhost/wallabag/`
 
 and choose a SQLite database, and a user name and password. 
-
-## 3.2 [raneto](https://github.com/gilbitron/Raneto)
-
-Raneto is a node.js-powered "knowledge aggregator". It's basically a wiki. The advantages of this seem to be that it's incredibly easy to use/install/manage, but the disadvntage is that this is a much smaller project that the massive `mediawiki` colossus. 
-
-Download the latest release [from here](https://github.com/gilbitron/Raneto/releases/latest) and unzip and move it wherever you want. Navigate to that folder, and modify it to run on port `80`:
-
-```
-subl www/bin
-```
-
-and change this line 
-```
-app.set('port', process.env.PORT || 3000);
-```
-
-to 
-```
-app.set('port', process.env.PORT || 80);
-
-```
-
-Now install and start the server with:
-
-```
-npm install
-npm start
-```
-
 
 
 # References
