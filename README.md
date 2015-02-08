@@ -214,29 +214,27 @@ Start MAMP (be careful not to run MAMP Pro, which will also be installed) and se
 ![](images/mamp-3.png)
 ![](images/mamp-2.png)
 
-OK, let's see if this works: 
+OK, let's see if this works (you will have to enter the local IP address of of your computer instead of `black.server`): 
 
 ![](images/server-1.png)
 
-Despite this joyous message, **this is not an indication that our MAMP installation works.** Where is this page coming from? Mac OS X has a webserver built in, and its document root is here:
+Excellent. It looks like MAMP works, and we have an Apache server running. Now, MAMP by default does not enable *access logging*. Access logging allows us to see who is trying to connect to the `BlackServer`, and is also a useful debugging tool. To enable this, 
 
-```
-/Library/Webserver/Documents/
-```
-Unhelpfully, Mac OS X restricts you from making changes to this folder. This means that every change to anything in this folder requires your admin password, and this gets annoying quickly. To avoid this nightmare, take ownership of this folder:
-
-```
-cd /Library/Webserver/
-sudo chown [your user name] Documents/
+```bash
+subl /Applications/MAMP/conf/apache/httpd.conf 
 ```
 
-Remembering that we started MAMP's Apache server on port 80, we verify that there is an Apache start page there:
+And remove the comment (the `#`) from this line
 
-![](images/server-2.png)
+```bash
+# CustomLog "/Applications/MAMP/logs/apache_access.log" common
+```
 
-Good! Now, let's check if MAMP has actually been installed:
+Restart your server for this to take effect. You can view the access log using 
 
-![](images/server-3.png)
+``` bash
+$ tail -f /Applications/MAMP/logs/apache_access_log
+```
 
 ### 2.4 Configure a global name 
 
