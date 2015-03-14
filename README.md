@@ -32,6 +32,10 @@ The `BlackServer`
         - [Modify your `$PATH` variable](#modify-your-path-variable)
         - [Modify your php.ini file](#modify-your-phpini-file)
         - [Install wallabag](#install-wallabag)
+- [Caveats, Workarounds, and Bugs](#caveats-workarounds-and-bugs)
+    - [CPU usage jumps to 100%, fans spin](#cpu-usage-jumps-to-100%-fans-spin)
+        - [Fix 1](#fix-1)
+        - [Fix 2](#fix-2)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -362,6 +366,24 @@ That's it. Now go to `localhost/wallabag/`
 
 and choose a SQLite database, and a user name and password. 
 
+# Caveats, Workarounds, and Bugs
+
+## CPU usage jumps to 100%, fans spin
+
+This is probably due to runaway perl processes. Check `top` to see which processes are hogging the CPU in this case. 
+
+### Fix 1
+
+Upgrade perl to the latest version using `brew`
+
+```
+brew install perl
+brew link --force perl
+```
+
+### Fix 2
+
+Use [this script](https://github.com/sg-s/auto-bots/blob/master/kill-high-cpu) to kill high-CPU processes. Run this using `cron`. 
 
 # References
 
