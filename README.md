@@ -59,13 +59,168 @@ Imagine having a personalised YouTube, filled with your own collection of awesom
 
 Don't let [*your* personal information be the currency with which you pay for essential services](http://www.bostonglobe.com/business/2015/01/23/snowden-nsa-face-off-over-privacy-harvard/7S0HX1SaCO1MlZL70JC2mK/story.html) on the internet. You shouldn't have to relinquish privacy just to read a stupid email.
 
+Here is a handy table listing services you probably use, alternatives you can host yourself, and the status of the offered solution (if any)
+
+<table class="center">
+  <tr>
+    <td>
+        <b>Service</b>
+    </td>
+    <td>
+        <b>Example</b>
+    </td>
+    <td>
+        <b>Alternative</b>
+    </td>
+    <td>
+        <b>Status</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+        email
+    </td>
+    <td>
+        GMail
+    </td>
+    <td>
+        ??
+    </td>
+    <td>
+        ??
+    </td>
+  </tr>
+
+ <tr>
+    <td>
+        static webserver
+    </td>
+    <td>
+        <a href="https://en.wikipedia.org/wiki/DreamHost"> DreamHost</a>
+    </td>
+    <td>
+        <a href = "http://www.mamp.info/en/">MAMP</a> + your own server
+    </td>
+    <td>
+        working
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+        file upload
+    </td>
+    <td>
+        <a href="https://mega.co.nz">Mega</a>
+    </td>
+    <td>
+        <a href = "https://github.com/sg-s/upload">upload</a> + your own server
+    </td>
+    <td>
+        working
+    </td>
+  </tr>
+
+ <tr>
+    <td>
+        git server
+    </td>
+    <td>
+        <a href="https://github.com/">GitHub</a>
+    </td>
+    <td>
+        <a href = "https://about.gitlab.com/">gitlab</a> + your own server
+    </td>
+    <td>
+        ??
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+        A read-it-later service
+    </td>
+    <td>
+        <a href="https://getpocket.com/">Pocket</a>
+    </td>
+    <td>
+        <a href = "https://www.wallabag.org/">wallabag</a> + your own server
+    </td>
+    <td>
+        working
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+        web-based YouTube downloader
+    </td>
+    <td>
+        <a href= "https://www.google.com/#safe=off&q=youtube+download">Your favourite spammy site</a>
+    </td>
+    <td>
+        <a href = "https://github.com/sg-s/video">video.php</a> + your own server
+    </td>
+    <td>
+        working
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+        Cloud backup
+    </td>
+    <td>
+        <a href= "http://www.drop-dropbox.com/">Dropbox</a>
+    </td>
+    <td>
+        rsync + your own server
+    </td>
+    <td>
+        ??
+    </td>
+  </tr>
+
+ <tr>
+    <td>
+        torrent tracker
+    </td>
+    <td>
+        <a href= "https://thepiratebay.se/">The Pirate Bay</a>
+    </td>
+    <td>
+        ??
+    </td>
+    <td>
+        ??
+    </td>
+  </tr>
+
+ <tr>
+    <td>
+        personal organiser
+    </td>
+    <td>
+        <a href= "https://evernote.com/">Evernote</a>
+    </td>
+    <td>
+        <a href="https://www.mediawiki.org/wiki/MediaWiki">mediawiki</a> + your server
+    </td>
+    <td>
+        working
+    </td>
+  </tr>
+
+</table>
+
 ### 0.5 because you can make a mean machine 
 
 This is the configuration of my MacBook server:
 
-- 2GB RAM
+- 2GB RAM (upgradable to 6GB)
 - 128GB SSD
-- .5TB of additional storage (I swapped out my optical drive)
+- .5TB of additional on-machine storage (I swapped out my optical drive)
 - 4TB of additional, external storage (1 FireWire port, 2 USB ports)
 
 # 1. What this document ...
