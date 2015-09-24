@@ -275,6 +275,7 @@ brew install git            # the best version control software
 brew install ffmpeg         # the best way to convert video
 brew install node           # server-side JavaScript
 brew install wget           # download things easily 
+brew install syncthing      # libre file synchronization 
 ```
 
 *You can also*  `brew install thing1 thing2`
@@ -289,7 +290,6 @@ brew cask install sublime-text          # the best text editor
 brew cask install torbrowser            # simple anonymity 
 brew cask install carbon-copy-cloner    # backups made easy
 brew cask install caffeine              # keep your screen on
-brew cask install bittorrent-sync       # file sync via P2P
 ```
 
 One of the complications(features?) of using `brew` is that it installs its own versions of things that Mac OS X already has (like `git`). To make sure that we always use the `brew` version, and not the OS X version, set your `$PATH` so that the `brew` path occurs before the system path:
