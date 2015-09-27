@@ -276,6 +276,7 @@ brew install ffmpeg         # the best way to convert video
 brew install node           # server-side JavaScript
 brew install wget           # download things easily 
 brew install syncthing      # libre file synchronization 
+brew install moreutils      # installs [moreutils](https://rentes.github.io/unix/utilities/2015/07/27/moreutils-package/)
 ```
 
 *You can also*  `brew install thing1 thing2`
