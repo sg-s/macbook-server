@@ -65,13 +65,14 @@ Here is a handy table listing services you probably use, alternatives you can ho
 | -------          | ------- | ----------- | ------ |
 | Email            | GMail   |  ??         |  ??    |
 | static webserver | [DreamHost](href="https://en.wikipedia.org/wiki/DreamHost) | [MAMP](http://www.mamp.info/en/) + your own server | working |
-| file upload service | [Mega](https://mega.co.nz) | [https://github.com/sg-s/upload](upload) + your own server | working |
-| git server | [GitHub](href="https://github.com/) | [GitLab](https://about.gitlab.com/) + your own server | ??
-| A read-it-later service | [Pocket](href="https://getpocket.com/) | [wallabag](https://www.wallabag.org/) + your own server | working |
+| file upload service | [Mega](https://mega.co.nz) | [upload](https://github.com/sg-s/upload) + your own server | working |
+| git server | [GitHub](href="https://github.com/) | [GitLab](https://about.gitlab.com/) + your own server | ?? | 
+| A read-it-later service | [Pocket](https://getpocket.com/) | [wallabag](https://www.wallabag.org/) + your own server | working |
 | web-based YouTube downloader | [your favorite spammy site](https://www.google.com/#safe=off&q=youtube+download) | [video](https://github.com/sg-s/video) + [youtube-dl](https://rg3.github.io/youtube-dl/) + your own server | working |
-| "Cloud" backup | [Condi's Dropbox](href= "http://www.drop-dropbox.com/) | [syncthing](https://github.com/syncthing/syncthing) + your own server | working |
+| "Cloud" backup | [Condi's Dropbox](http://www.drop-dropbox.com/) | [syncthing](https://github.com/syncthing/syncthing) + your own server | working |
 | torrent tracker | [The Pirate Bay](https://thepiratebay.se/) | ?? | ?? |
 | personal organiser | [Evernote](https://evernote.com/) | [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki) + your own server | working |
+| Video streaming service | [Netflix](https://en.wikipedia.org/wiki/Netflix) | [Emby](https://github.com/MediaBrowser/Emby) + your own server | working |  
 
 
 ### 0.5 because you can make a mean machine 
