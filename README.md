@@ -53,7 +53,7 @@ Wouldn't it be awesome to have your computer backup wirelessly, automatically, n
 
 ### 0.3 because you can host your own media server
 
-Imagine having a personalised YouTube, filled with your own collection of awesome movies and TV shows and what have you. 
+Imagine having a personalised Netflix, filled with your own collection of awesome movies and TV shows and what have you. 
 
 ### 0.4 because the internet is broken 
 
@@ -61,158 +61,18 @@ Don't let [*your* personal information be the currency with which you pay for es
 
 Here is a handy table listing services you probably use, alternatives you can host yourself, and the status of the offered solution (if any)
 
-<table class="center">
-  <tr>
-    <td>
-        <b>Service</b>
-    </td>
-    <td>
-        <b>Example</b>
-    </td>
-    <td>
-        <b>Alternative</b>
-    </td>
-    <td>
-        <b>Status</b>
-    </td>
-  </tr>
+| Service          | Example | Alternative | Status |
+| -------          | ------- | ----------- | ------ |
+| Email            | GMail   |  ??         |  ??    |
+| static webserver | [DreamHost](href="https://en.wikipedia.org/wiki/DreamHost) | [MAMP](http://www.mamp.info/en/) + your own server | working |
+| file upload service | [Mega](https://mega.co.nz) | [https://github.com/sg-s/upload](upload) + your own server | working |
+| git server | [GitHub](href="https://github.com/) | [GitLab](https://about.gitlab.com/) + your own server | ??
+| A read-it-later service | [Pocket](href="https://getpocket.com/) | [wallabag](https://www.wallabag.org/) + your own server | working |
+| web-based YouTube downloader | [your favorite spammy site](https://www.google.com/#safe=off&q=youtube+download) | [video](https://github.com/sg-s/video) + [youtube-dl](https://rg3.github.io/youtube-dl/) + your own server | working |
+| "Cloud" backup | [Condi's Dropbox](href= "http://www.drop-dropbox.com/) | [syncthing](https://github.com/syncthing/syncthing) + your own server | working |
+| torrent tracker | [The Pirate Bay](https://thepiratebay.se/) | ?? | ?? |
+| personal organiser | [Evernote](https://evernote.com/) | [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki) + your own server | working |
 
-  <tr>
-    <td>
-        email
-    </td>
-    <td>
-        GMail
-    </td>
-    <td>
-        ??
-    </td>
-    <td>
-        ??
-    </td>
-  </tr>
-
- <tr>
-    <td>
-        static webserver
-    </td>
-    <td>
-        <a href="https://en.wikipedia.org/wiki/DreamHost"> DreamHost</a>
-    </td>
-    <td>
-        <a href = "http://www.mamp.info/en/">MAMP</a> + your own server
-    </td>
-    <td>
-        working
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-        file upload
-    </td>
-    <td>
-        <a href="https://mega.co.nz">Mega</a>
-    </td>
-    <td>
-        <a href = "https://github.com/sg-s/upload">upload</a> + your own server
-    </td>
-    <td>
-        working
-    </td>
-  </tr>
-
- <tr>
-    <td>
-        git server
-    </td>
-    <td>
-        <a href="https://github.com/">GitHub</a>
-    </td>
-    <td>
-        <a href = "https://about.gitlab.com/">gitlab</a> + your own server
-    </td>
-    <td>
-        ??
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-        A read-it-later service
-    </td>
-    <td>
-        <a href="https://getpocket.com/">Pocket</a>
-    </td>
-    <td>
-        <a href = "https://www.wallabag.org/">wallabag</a> + your own server
-    </td>
-    <td>
-        working
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-        web-based YouTube downloader
-    </td>
-    <td>
-        <a href= "https://www.google.com/#safe=off&q=youtube+download">Your favourite spammy site</a>
-    </td>
-    <td>
-        <a href = "https://github.com/sg-s/video">video.php</a> + your own server
-    </td>
-    <td>
-        working
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-        Cloud backup
-    </td>
-    <td>
-        <a href= "http://www.drop-dropbox.com/">Dropbox</a>
-    </td>
-    <td>
-        rsync + your own server
-    </td>
-    <td>
-        ??
-    </td>
-  </tr>
-
- <tr>
-    <td>
-        torrent tracker
-    </td>
-    <td>
-        <a href= "https://thepiratebay.se/">The Pirate Bay</a>
-    </td>
-    <td>
-        ??
-    </td>
-    <td>
-        ??
-    </td>
-  </tr>
-
- <tr>
-    <td>
-        personal organiser
-    </td>
-    <td>
-        <a href= "https://evernote.com/">Evernote</a>
-    </td>
-    <td>
-        <a href="https://www.mediawiki.org/wiki/MediaWiki">mediawiki</a> + your server
-    </td>
-    <td>
-        working
-    </td>
-  </tr>
-
-</table>
 
 ### 0.5 because you can make a mean machine 
 
