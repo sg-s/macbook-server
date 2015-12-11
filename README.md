@@ -72,7 +72,8 @@ Here is a handy table listing services you probably use, alternatives you can ho
 | "Cloud" backup | [Condi's Dropbox](http://www.drop-dropbox.com/) | [syncthing](https://github.com/syncthing/syncthing) + your own server | working |
 | torrent tracker | [The Pirate Bay](https://thepiratebay.se/) | ?? | ?? |
 | personal organiser | [Evernote](https://evernote.com/) | [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki) + your own server | working |
-| Video streaming service | [Netflix](https://en.wikipedia.org/wiki/Netflix) | [Emby](https://github.com/MediaBrowser/Emby) + your own server | working |  
+| Video streaming service | [Netflix](https://en.wikipedia.org/wiki/Netflix) | [Emby](https://github.com/MediaBrowser/Emby) + your own server | working | 
+| Online collaborative document editor | [Google Docs](https://drive.google.com) | [Mozilla etherpad](http://etherpad.org/) | working | 
 
 
 ### 0.5 because you can make a mean machine 
@@ -256,7 +257,7 @@ Restart your server for this to take effect. You can view the access log using
 $ tail -f /Applications/MAMP/logs/apache_access_log
 ```
 
-### 2.4 Configure a global name 
+### 2.8 Configure a global name 
 
 It would be nice to access `BlackServer` from anywhere in the world. Right now, we can't do that, for two reasons:
 
@@ -281,7 +282,7 @@ brew cask install no-ip-duc
 
 Configuring this piece of software is easy, and you can get it to update a URL you control with the IP address `BlackServer` is on. Let's assume that the domain name you control is `black.server`.
 
-### 2.5 composer
+### 2.9 composer
 
 [composer](https://getcomposer.org/) is a dependency manager for PHP. You will need it if you install wallabag. 
 
@@ -308,6 +309,12 @@ Finally, we can install composer using the installer:
 ```bash
 curl -s http://getcomposer.org/installer | php
 ```
+
+### 2.10 Get a decent hosts file
+
+A hosts file is a file that maps domain names to IP addresses. This is the first thing your computer looks at when resolving names. Think of it as your own local DNS. On Mac OS X, it lives here: `/etc/hosts`
+
+I recommend copying Steven Black's [hosts](https://github.com/StevenBlack/hosts) file, as it in itself is a aggregation of other hosts files, and is frequently updated. 
 
 
 # 3. Install applications on your server
