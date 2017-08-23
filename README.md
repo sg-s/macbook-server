@@ -317,6 +317,12 @@ A hosts file is a file that maps domain names to IP addresses. This is the first
 I recommend copying Steven Black's [hosts](https://github.com/StevenBlack/hosts) file, as it in itself is a aggregation of other hosts files, and is frequently updated. 
 
 
+### 2.11 Revoke Chinese Certificates
+
+Default installs of Mac OS X ship with a bunch of certificates. If the people issuing these certificates are compromised, or are otherwise untrustworthy, there is a weakness in your system. Consider revoking some certificates using the following guides:
+
+* [RevokeChinaCerts](https://github.com/chengr28/RevokeChinaCerts)
+
 # 3. Install applications on your server
 
 ## 3.0 A File upload service
@@ -409,12 +415,16 @@ brew link --force perl
 
 Use [this script](https://github.com/sg-s/auto-bots/blob/master/kill-high-cpu) to kill high-CPU processes. Run this using `cron`. 
 
-# References
+# References and Further Reading 
 
 1. [Getting started with dotfiles](https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789)
 2. [How to run your own e-mail server with your own domain](http://arstechnica.com/information-technology/2014/02/how-to-run-your-own-e-mail-server-with-your-own-domain-part-1/)
 3. [The Free Software Foundationn](http://www.fsf.org/)
-
-
+4. [donnemartin's Mac OS X Dev Setup](https://github.com/donnemartin/dev-setup)
+5. [herrbischoff's awesome OS X command line](https://github.com/herrbischoff/awesome-osx-command-line)
+6. [YouTransfer](https://github.com/remie/YouTransfer), a self-hosted file sharing solution
+7. [Awesome OS X](https://github.com/iCHAIT/awesome-osx)
+8. [OS X Paranoia](https://github.com/l1k/osxparanoia)
+9. [OS X Security and Privacy Guide](https://github.com/drduh/OS-X-Security-and-Privacy-Guide)
 
 
